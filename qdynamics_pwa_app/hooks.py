@@ -6,7 +6,7 @@ app_email = "nitishmashal0@gmail.com"
 app_license = "mit"
 
 after_install = "qdynamics_pwa_app.pwa_assets.toggle_pwa_settings"
-before_uninstall = "qdynamics_pwa_app.pwa_assets.toggle_pwa_settings"
+before_uninstall = "qdynamics_pwa_app.pwa_assets.toggle_pwa_settings_uninstall"
 
 # Apps
 # ------------------
