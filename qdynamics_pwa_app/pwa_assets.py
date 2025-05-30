@@ -22,12 +22,13 @@ def handle_pwa_assets():
 
         # Remove <link rel="manifest"> from Website Settings
         settings = frappe.get_single("Website Settings")
-        if manifest_link in settings.head_html:
-            settings.head_html = settings.head_html.replace(manifest_link, "").strip()
+        head_html = settings.head_html or ""
+        if manifest_link in head_html:
+            settings.head_html = head_html.replace(manifest_link, "").strip()
             settings.save()
     else:
         # 🔺 Install mode
-        public_path = frappe.get_app_path("qdyynamics_pwa_app", "public")
+        public_path = frappe.get_app_path("qdynamics_pwa_app", "public")
 
         for fname in filenames:
             full_path = os.path.join(public_path, fname)
@@ -46,6 +47,7 @@ def handle_pwa_assets():
 
         # Add <link rel="manifest"> to Website Settings
         settings = frappe.get_single("Website Settings")
-        if manifest_link not in (settings.head_html or ""):
-            settings.head_html = (settings.head_html or "") + "\n" + manifest_link
+        head_html = settings.head_html or ""
+        if manifest_link not in head_html:
+            settings.head_html = (head_html + "\n" + manifest_link).strip()
             settings.save()
