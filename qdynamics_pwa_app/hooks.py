@@ -5,8 +5,8 @@ app_description = "Quantumberg PWA Custom App"
 app_email = "nitishmashal0@gmail.com"
 app_license = "mit"
 
-after_install = "qdynamics_pwa_app.pwa_assets.handle_pwa_assets"
-before_uninstall = "qdynamics_pwa_app.pwa_assets.handle_pwa_assets"
+after_install = "qdynamics_pwa_app.pwa_assets.toggle_pwa_settings"
+before_uninstall = "qdynamics_pwa_app.pwa_assets.toggle_pwa_settings"
 
 # Apps
 # ------------------
